@@ -1,4 +1,4 @@
-import { Text, View, FlatList, TouchableOpacity, Image, Modal } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image, Modal, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 
 import * as DocumentPicker from 'expo-document-picker';
@@ -13,13 +13,15 @@ import msgToObj from './msgToObj';
 import removeData from './removeData';
 import getArtistCode from './getArtistCode';
 
+import Artists from '../assets/Artists.json'
+
 
 var myChatList;
 
 const getMyChats = async (Artists) => {
     myChatList = await getData('myChats');
-    //console.log('get my chats');
-    //console.log(myChatList);
+    console.log('get my chats');
+    console.log(myChatList);
     let data = [];
     if (myChatList != null) {
         for (const code in myChatList){
@@ -41,7 +43,7 @@ const getMyChats = async (Artists) => {
 
 
 const MyChats = ({ navigation, route }) =>{
-    Artists = route.params.Artists;
+    //Artists = route.params.Artists;
     
     const [data, setData] = useState([]);
     const fetchData = async()=> {
@@ -50,6 +52,19 @@ const MyChats = ({ navigation, route }) =>{
 
     useEffect( ()=> {
         fetchData();
+        console.log(data);
+
+        navigation.setOptions({
+            headerRight: ()=>(
+                <TouchableOpacity style={[styles.addButton, styles.centeredContainer]}
+                    onPress={() => {
+                        setNewArtistNickname('');
+                        setModalVisible(!modalVisible);
+                    }}
+                >
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>)
+        })
     },[]);
     
     const [modalVisible, setModalVisible] = useState(false);
@@ -101,22 +116,24 @@ const MyChats = ({ navigation, route }) =>{
         console.log(name);
         let newArtistCode = getArtistCode(name);
         console.log(newArtistCode);
-        
-        myChatList[newArtistCode] = {
-            nickname: newArtistNickname,
-            lastMessage: lastMessage
-        };
-        storeData({value: myChatList, storageKey: 'myChats'});
+        if (newArtistCode) {
+            myChatList[newArtistCode] = {
+                nickname: newArtistNickname,
+                lastMessage: lastMessage
+            };
+            storeData({value: myChatList, storageKey: 'myChats'});
 
-        let txtObjArr = [];
-        console.log(newArtistCode);
-        txtParse.forEach( element => txtObjArr.push(msgToObj(element)) );
-        storeData({value: dateSort(txtObjArr), storageKey: newArtistCode})
-        // dataSort
-        //console.log(txtObjArr[0]);
-        //setData(dateSort(txtObjArr));
+            let txtObjArr = [];
+            console.log(newArtistCode);
+            txtParse.forEach( element => txtObjArr.push(msgToObj(element)) );
+            storeData({value: dateSort(txtObjArr), storageKey: newArtistCode});
+        }
+        else {
+            Alert.alert( '주의', '프로필이 제공되지 않는 아티스트입니다.')
+        }
 
         return newArtistCode;
+
     }
 
     const AddChat = () => {
@@ -147,9 +164,11 @@ const MyChats = ({ navigation, route }) =>{
                         <TouchableOpacity style={styles.buttonContainer}
                             onPress={ () => {
                                 const newArtistCode = _dataProcessing();
-                                setModalVisible(!modalVisible); 
-                                fetchData(); 
-                                navigation.navigate('ChatRoom',{artist: Artists[newArtistCode], nickname: newArtistNickname, full: false, userName:''}); 
+                                if (newArtistCode){
+                                    setModalVisible(!modalVisible); 
+                                    fetchData(); 
+                                    navigation.navigate('ChatRoom',{artist: Artists[newArtistCode], nickname: newArtistNickname, full: false, userName:''}); 
+                                }
                             }}
                         >
                             <Text style={styles.okButton}>확인</Text>
@@ -212,6 +231,7 @@ const MyChats = ({ navigation, route }) =>{
             <FlatList
                 data={data}
                 renderItem={renderItem}
+                ListEmptyComponent={ <Text>우측 상단 + 버튼을 눌러 채팅을 추가해주세요.</Text> }
             />
             <View style={styles.centeredContainer}>
                 <TouchableOpacity style={[styles.addButton, styles.centeredContainer]}

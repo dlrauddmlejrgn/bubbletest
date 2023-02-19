@@ -11,8 +11,8 @@ const MainTabs = ({ navigation, route }) =>(
   <Tab.Navigator
     screenOptions={{ 
       tabBarLabelPosition: "beside-icon",
-      //tabBarLabelStyle: { borderColor:'red', borderWidth:1 },
-      tabBarIconStyle: { display: "none" } 
+      tabBarIconStyle: { display: "none" } ,
+      tabBarActiveTintColor: "#e54132"
     }}>
     <Tab.Screen name='Archive' 
       getComponent={() => require('./components/Archive').default}
@@ -42,7 +42,9 @@ export default function App() {
           getComponent={() => require('./components/ChatRoom').default} 
           options={ ({ route }) => 
             ({ title: route.params.nickname,
-              headerTitleAlign: 'center' })
+              headerTitleAlign: 'center', 
+              
+            })
           }
         />
         <Stack.Screen name='Profile'

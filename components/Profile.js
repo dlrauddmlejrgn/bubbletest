@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, Image, Modal, TextInput, ImageBackground } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Modal, TextInput, Alert } from 'react-native';
 import styles from './styles';
 import { openURL } from 'expo-linking';
 
@@ -61,8 +61,9 @@ const Profile = ({ navigation, route }) => {
             {artist.background ? <Image source={{uri:artist.background}} style={{flex:1}}/> : <View/>}
             <View style={{backgroundColor:'#00000050', position:'absolute', top:0, width: '100%', height:'100%'}}>
                 <UserNameModal/>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Image source={require('../assets/X.png')} style={{marginTop: 45, marginLeft: 25}}/>
+                <TouchableOpacity onPress={() => navigation.goBack()} 
+                    style={{position:'absolute', top: 45, left: 25}}>
+                    <Image source={require('../assets/X.png')} style={{width:27, height: 27, opacity: 0.7}} />
                 </TouchableOpacity>
                 <View style={{position:'absolute', bottom:0, alignItems:'center', width: '100%'}}>
                     <TouchableOpacity onPress={()=>{openURL(artist.profileDownload);}}>
@@ -71,12 +72,16 @@ const Profile = ({ navigation, route }) => {
                     </TouchableOpacity>
                     <Text style={{fontSize:18, margin:10, color:'white'}}>{artist.name}</Text>
                     <Text style={{color:'lightgray'}}>{artist.status}</Text>
-                    <TouchableOpacity style={{width: '100%', marginTop:70}}
-                        onPress={()=>{setModalVisible(!modalVisible);}}>
-                        <Text style={[styles.okButton, {margin:25, padding: 15, fontSize:15.5}]}>
-                            전체 채팅 보기
-                        </Text>
-                    </TouchableOpacity>
+                    {
+                        artist.hasMediaMeta ?
+                        <TouchableOpacity style={{width: '100%', marginTop:70}}
+                            onPress={()=>{setModalVisible(!modalVisible);}}>
+                            <Text style={[styles.okButton, {margin:25, padding: 15, fontSize:15.5}]}>
+                                전체 채팅 보기
+                            </Text>
+                        </TouchableOpacity> :
+                        <View style={{height: 150}}/>
+                    }
                 </View>
             </View>
         </TouchableOpacity>

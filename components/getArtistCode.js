@@ -47,6 +47,8 @@ const getArtistCode = (name) => {
             return ('SH');
 
         //SF9
+
+        default: return undefined;
     }
 };
 

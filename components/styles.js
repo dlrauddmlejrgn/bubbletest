@@ -1,6 +1,13 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    headerBar: {
+        backgroundColor: 'white', 
+        height: 64, 
+        alignItems:'center',
+        flexDirection: 'row', 
+        padding: 15
+    },
     profileImg: {
         width: 40,
         height: 40,
@@ -58,16 +65,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     addButton: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        borderColor: 'lightgray',
-        borderWidth: 0.5,
+        width: 50,
     },
     buttonText: {
-        color: 'darkgray',
-        fontSize: 40,
-        fontWeight: '400',
+        fontSize: 36,
         textAlign: 'center',
         
     },
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold', 
         color: 'gray', 
         fontSize: 15,
-        marginBottom: 10
+        margin: 10
     },
     fileSelectButton: {
         textAlign: 'center',
