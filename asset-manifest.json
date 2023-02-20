@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/bubbletest/static/js/app.beb3529d.chunk.js",
-    "app.js.map": "/bubbletest/static/js/app.beb3529d.chunk.js.map",
+    "app.js": "/bubbletest/static/js/app.61887913.chunk.js",
+    "app.js.map": "/bubbletest/static/js/app.61887913.chunk.js.map",
     "runtime~app.js": "/bubbletest/static/js/runtime~app.3ee2bccc.js",
     "runtime~app.js.map": "/bubbletest/static/js/runtime~app.3ee2bccc.js.map",
     "static/js/2.727b1630.chunk.js": "/bubbletest/static/js/2.727b1630.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime~app.3ee2bccc.js",
     "static/js/2.727b1630.chunk.js",
-    "static/js/app.beb3529d.chunk.js"
+    "static/js/app.61887913.chunk.js"
   ]
 }
