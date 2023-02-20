@@ -23,7 +23,7 @@ const Message = ({content, media, userName}) => {
             case 'err':
                 return (
                     <View style={{ marginRight:7 }}>
-                        <Text style={[{color: 'white', backgroundColor:'gray', borderTopLeftRadius: 0}, styles.text]}>
+                        <Text style={[styles.err, styles.text]}>
                             삭제된 미디어
                         </Text>
                     </View>
@@ -49,7 +49,7 @@ const Message = ({content, media, userName}) => {
                     <TouchableOpacity onPress={()=>{openURL(media.download);}}>
                         <View style={{ marginRight:7 }}>
                             <View style={[{backgroundColor:'white', borderTopLeftRadius: 0, flexDirection: 'row'}, styles.text]}>
-                                <View  style={{borderColor: 'black', borderWidth: 2, width: 24, height: 24, borderRadius: 12, justifyContent: 'center', paddingLeft:2}}>
+                                <View  style={styles.voiceCircle}>
                                     <Text style={{textAlign: 'center', fontSize:11}}>▶</Text>
                                 </View>
                                 <Text style={{fontSize:14.8, lineHeight:21}}> {media.length}</Text>
@@ -67,9 +67,8 @@ const Message = ({content, media, userName}) => {
                         <View style={{ marginRight:7 }}>
                             <Image style={[{borderRadius: 15, borderTopLeftRadius: 0}, picStyle]}
                             source={{uri: media.thumbnail}}/>
-                            <View style={[{backgroundColor: 'black', opacity: 0.4, 
-                            top:0, position:'absolute', borderRadius: 15, borderTopLeftRadius: 0, alignItems:'center', justifyContent: 'center'}, picStyle]}>
-                                <View  style={{borderColor: 'white', borderWidth: 3, width: 36, height: 36, borderRadius: 18, justifyContent: 'center', paddingLeft:3}}>
+                            <View style={[styles.videoOverlay, picStyle]}>
+                                <View  style={styles.videoCircle}>
                                     <Text style={{color: 'white', textAlign: 'center', fontSize:18}}>▶</Text>
                                 </View>
                             </View>

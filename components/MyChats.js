@@ -87,16 +87,16 @@ const MyChats = ({ navigation, route }) =>{
                 let tmp2 = [];
                 for (let i = 0; i < tmp.length; i++){
                     // 마지막 글자 \r 삭제
-                    tmp[i] = tmp[i].replace(/\r$/, '');
+                    //tmp[i] = tmp[i].replace(/\r$/, '');
                     
                     if(tmp[i].match(/^(?:20\d{2}-\d{2}-\d{2} \d{2}:\d{2})/g) ){
-                        let e = tmp[i];
+                        let e = tmp[i].replace(/\r$/, '');
                         while( tmp[i+1] ){
                             if (tmp[i+1].match(/^(?:20\d{2}-\d{2}-\d{2} \d{2}:\d{2})/g)){
                                 break;
                             }
                             else {
-                                e += ('\n'+tmp[++i]);
+                                e += ('\n'+tmp[++i].replace(/\r$/, ''));
                             }
                         }
                         //console.log(e);
@@ -182,7 +182,7 @@ const MyChats = ({ navigation, route }) =>{
     const renderItem = ({item}) => {
         //console.log(item);
         return (
-            <View style={{marginBottom: 15, height: 65}}>
+            <View style={styles.itemContainer}>
                 <TouchableOpacity style={{flexDirection: 'row'}}
                     onPress={ ()=> {navigation.navigate('ChatRoom',{artist: item.artist, nickname: item.nickname, full: false, userName:''})} }
                 >
@@ -196,10 +196,10 @@ const MyChats = ({ navigation, route }) =>{
                     </View>
                     
                     <View style={{ marginLeft: 10, flex: 1}}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 16, marginBottom: 2}}>
+                        <Text style={[styles.boldName, {marginBottom: 2}]}>
                             {item.nickname}
                         </Text>
-                        <Text style={{ color: 'darkgray', fontSize: 12 }}
+                        <Text style={styles.lastMsg}
                             numberOfLines={2} ellipsizeMode='tail'>
                             {item.lastMessage}
                         </Text>
@@ -208,12 +208,7 @@ const MyChats = ({ navigation, route }) =>{
             </View>
         );
     }
-    /*
-    <FlatList
-                data={data}
-                renderItem={renderItem}
-            />
-            */
+    
     return (
         <View style={styles.container}>
             <Modal

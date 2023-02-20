@@ -59,13 +59,13 @@ const Profile = ({ navigation, route }) => {
         <TouchableOpacity style={{flex: 1}} 
             onPress={()=>{if(artist.background) {openURL(artist.backgroundDownload);}}}>
             {artist.background ? <Image source={{uri:artist.background}} style={{flex:1}}/> : <View/>}
-            <View style={{backgroundColor:'#00000050', position:'absolute', top:0, width: '100%', height:'100%'}}>
+            <View style={styles.backgroundOverlay}>
                 <UserNameModal/>
                 <TouchableOpacity onPress={() => navigation.goBack()} 
-                    style={{position:'absolute', top: 45, left: 25}}>
+                    style={{position:'absolute', top: 40, left: 25}}>
                     <Image source={require('../assets/X.png')} style={{width:27, height: 27, opacity: 0.7}} />
                 </TouchableOpacity>
-                <View style={{position:'absolute', bottom:0, alignItems:'center', width: '100%'}}>
+                <View style={styles.profileBox}>
                     <TouchableOpacity onPress={()=>{openURL(artist.profileDownload);}}>
                         <Image source={{uri: artist.profile}} 
                             style={{width: 120, height: 120, borderRadius: 60}} />

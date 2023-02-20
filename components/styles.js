@@ -126,6 +126,64 @@ const styles = StyleSheet.create({
     textinput: {
         borderColor:'lightgray', 
         borderBottomWidth:1
+    },
+    lastMsg: {
+        color: 'darkgray', 
+        fontSize: 12
+    },
+    boldName: {
+        fontWeight: 'bold', 
+        fontSize: 16
+    },
+    itemContainer: {
+        marginBottom: 15, 
+        height: 65
+    },
+    err: {
+        color: 'white', 
+        backgroundColor:'gray', 
+        borderTopLeftRadius: 0
+    },
+    voiceCircle: {
+        borderColor: 'black', 
+        borderWidth: 2, 
+        width: 24, 
+        height: 24, 
+        borderRadius: 12, 
+        justifyContent: 'center', 
+        paddingLeft:2
+    },
+    videoCircle:{
+        borderColor: 'white', 
+        borderWidth: 3, 
+        width: 36, 
+        height: 36, 
+        borderRadius: 18, 
+        justifyContent: 'center', 
+        paddingLeft:3
+    },
+    videoOverlay: {
+        backgroundColor: 'black', 
+        opacity: 0.4, 
+        top:0, 
+        position:'absolute', 
+        borderRadius: 15, 
+        borderTopLeftRadius: 0, 
+        alignItems:'center', 
+        justifyContent: 'center'
+    },
+    backgroundOverlay: {
+        backgroundColor:'#00000050', 
+        position:'absolute', 
+        top:0, 
+        width: '100%', 
+        height:'100%'
+    },
+    profileBox: {
+        position:'absolute', 
+        bottom:0, 
+        alignItems:'center', 
+        width: '100%'
     }
 });
 

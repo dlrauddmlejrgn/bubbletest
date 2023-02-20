@@ -8,11 +8,9 @@ const Archive = ({ navigation, route }) =>{
     const renderItem = ({item}) => {
         //console.log(item);
         return (
-            <View style={{marginBottom: 15, height: 65}}>
+            <View style={styles.itemContainer}>
                 <TouchableOpacity style={{flexDirection: 'row'}}
-                    //onPress={ ()=> {_fetchData(); console.log(temp);}}
                     onPress={ ()=> {
-                        //navigation.navigate('ChatRoom',{artist: item, nickname: item.name, full: true})
                         navigation.navigate('Profile',{artist: item})
                     } }
                 >
@@ -26,13 +24,13 @@ const Archive = ({ navigation, route }) =>{
                     </View>
                     
                     <View style={{ marginHorizontal: 10, justifyContent: 'center'}}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 16}}>
+                        <Text style={styles.boldName}>
                             {item.name}
                         </Text>
                     </View>
                     
                     <View style={{ justifyContent: 'center', flex: 1, alignItems: 'flex-end'}}>
-                        <Text style={{ color: 'darkgray', fontSize: 12 }}
+                        <Text style={styles.lastMsg}
                                 numberOfLines={2} ellipsizeMode='tail'>
                                 {item.status}
                         </Text>

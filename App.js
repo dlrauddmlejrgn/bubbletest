@@ -25,9 +25,6 @@ const MainTabs = ({ navigation, route }) =>(
   </Tab.Navigator>
 )
 
-// <StatusBar style="auto" />
-
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -43,7 +40,6 @@ export default function App() {
           options={ ({ route }) => 
             ({ title: route.params.nickname,
               headerTitleAlign: 'center', 
-              
             })
           }
         />
