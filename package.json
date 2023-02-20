@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "predeploy": "expo export:web",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "build": "webpack"
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
