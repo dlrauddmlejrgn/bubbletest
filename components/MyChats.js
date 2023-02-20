@@ -226,7 +226,7 @@ const MyChats = ({ navigation, route }) =>{
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                contentContainerStyle={{paddingHorizontal: 20}}
+                contentContainerStyle={styles.contentContainer}
                 ListEmptyComponent={ <Text>우측 상단 + 버튼을 눌러 채팅을 추가해주세요.</Text> }
             />
             <View style={styles.centeredContainer}>

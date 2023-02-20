@@ -45,7 +45,10 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor:'#FFFFFF', 
-        flex:1, 
+        flex:1
+    },
+    contentContainer: {
+        paddingHorizontal: 20, 
         paddingVertical: 10
     },
     profile: {

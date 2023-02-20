@@ -46,7 +46,7 @@ const Archive = ({ navigation, route }) =>{
             <FlatList
                 data={Object.values(data)}
                 renderItem={renderItem}
-                contentContainerStyle={{paddingHorizontal: 20}}
+                contentContainerStyle={styles.contentContainer}
         />
         </View>
     );
