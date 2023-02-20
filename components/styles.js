@@ -26,10 +26,9 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     text: {
-        paddingTop: 8, 
-        paddingBottom: 10, 
+        paddingVertical: 8, 
         paddingHorizontal: 12, 
-        lineHeight:21, 
+        lineHeight:22, 
         fontSize:14.8,
         borderRadius: 14, 
         maxWidth: 270,
@@ -124,10 +123,6 @@ const styles = StyleSheet.create({
     buttonContainer:{
         flex: 1,
         justifyContent: 'center'
-    },
-    textinput: {
-        borderColor:'lightgray', 
-        borderBottomWidth:1
     },
     lastMsg: {
         color: 'darkgray', 
