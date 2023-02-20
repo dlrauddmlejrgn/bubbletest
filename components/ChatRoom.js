@@ -38,7 +38,7 @@ const ChatRoom = ({ route }) => {
         }
 
         if (artist.hasMediaMeta){
-            const mediaUrl = "https://raw.githubusercontent.com/hasy0224/Bubble/main/MediaDB/"+artist.code+".json";
+            const mediaUrl = "https://raw.githubusercontent.com/dlrauddmlejrgn/BBMedia/main/MediaList/"+artist.code+".json";
             try {
                 const response = await fetch(
                     mediaUrl,
