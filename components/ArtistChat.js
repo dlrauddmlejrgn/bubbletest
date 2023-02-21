@@ -52,7 +52,7 @@ const Message = ({content, media, userName}) => {
                                 <View  style={styles.voiceCircle}>
                                     <Text style={{textAlign: 'center', fontSize:11}}>▶</Text>
                                 </View>
-                                <Text style={{fontSize:14.8, textAlign: 'center'}}> {media.length}</Text>
+                                <Text style={{fontSize:14.8, lineHeight:24}}> {media.length}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>

@@ -148,7 +148,8 @@ const styles = StyleSheet.create({
         height: 24, 
         borderRadius: 12, 
         justifyContent: 'center', 
-        paddingLeft:2
+        paddingLeft: 2,
+        marginRight: 2
     },
     videoCircle:{
         borderColor: 'white', 
