@@ -48,11 +48,11 @@ const Message = ({content, media, userName}) => {
                 return (
                     <TouchableOpacity onPress={()=>{openURL(media.download);}}>
                         <View style={{ marginRight:7 }}>
-                            <View style={[{backgroundColor:'white', borderTopLeftRadius: 0, flexDirection: 'row'}, styles.text]}>
+                            <View style={[{backgroundColor:'white', borderTopLeftRadius: 0, flexDirection: 'row', justifyContent: 'center'}, styles.text]}>
                                 <View  style={styles.voiceCircle}>
                                     <Text style={{textAlign: 'center', fontSize:11}}>▶</Text>
                                 </View>
-                                <Text style={{fontSize:14.8, lineHeight:21}}> {media.length}</Text>
+                                <Text style={{fontSize:14.8}}> {media.length}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
