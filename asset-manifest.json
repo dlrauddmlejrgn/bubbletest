@@ -1,22 +1,22 @@
 {
   "files": {
-    "app.js": "/bubbletest/static/js/app.9d686466.chunk.js",
-    "app.js.map": "/bubbletest/static/js/app.9d686466.chunk.js.map",
+    "app.js": "/bubbletest/static/js/app.9d9a9598.chunk.js",
+    "app.js.map": "/bubbletest/static/js/app.9d9a9598.chunk.js.map",
     "runtime~app.js": "/bubbletest/static/js/runtime~app.3ee2bccc.js",
     "runtime~app.js.map": "/bubbletest/static/js/runtime~app.3ee2bccc.js.map",
-    "static/js/2.727b1630.chunk.js": "/bubbletest/static/js/2.727b1630.chunk.js",
-    "static/js/2.727b1630.chunk.js.map": "/bubbletest/static/js/2.727b1630.chunk.js.map",
+    "static/js/2.8b34ca8e.chunk.js": "/bubbletest/static/js/2.8b34ca8e.chunk.js",
+    "static/js/2.8b34ca8e.chunk.js.map": "/bubbletest/static/js/2.8b34ca8e.chunk.js.map",
     "favicon-16.png": "/bubbletest/favicon-16.png",
     "favicon-32.png": "/bubbletest/favicon-32.png",
     "favicon.ico": "/bubbletest/favicon.ico",
     "index.html": "/bubbletest/index.html",
     "manifest.json": "/bubbletest/manifest.json",
     "serve.json": "/bubbletest/serve.json",
-    "static/js/2.727b1630.chunk.js.LICENSE.txt": "/bubbletest/static/js/2.727b1630.chunk.js.LICENSE.txt"
+    "static/js/2.8b34ca8e.chunk.js.LICENSE.txt": "/bubbletest/static/js/2.8b34ca8e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.3ee2bccc.js",
-    "static/js/2.727b1630.chunk.js",
-    "static/js/app.9d686466.chunk.js"
+    "static/js/2.8b34ca8e.chunk.js",
+    "static/js/app.9d9a9598.chunk.js"
   ]
 }
