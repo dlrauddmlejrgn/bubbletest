@@ -81,6 +81,7 @@ const MyChats = ({ navigation, route }) =>{
         fetch(result.uri).then(function(response) {
             response.text().then(function(text) {
                 let _nickname = text.match(/.*님/)[0];
+                console.log(_nickname);
                 setNewArtistNickname(_nickname.slice(0, _nickname.length-1).match(/[^\[].*[^\] ]/)[0]);
 
                 let tmp = text.split('\n');
