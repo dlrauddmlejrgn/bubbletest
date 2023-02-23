@@ -2,6 +2,7 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 
 import { openURL } from 'expo-linking';
+import { openBrowserAsync } from 'expo-web-browser';
 import styles from './styles';
 
 const Message = ({content, media, userName}) => {
@@ -36,7 +37,7 @@ const Message = ({content, media, userName}) => {
                 }, [])
                 
                 return (
-                    <TouchableOpacity onPress={()=>{openURL(media.download);}}>
+                    <TouchableOpacity onPress={async()=>{/*openURL(media.download);*/ await openBrowserAsync(media.download)}}>
                         <View style={{ marginRight:7}}>
                             <Image style={[{borderRadius: 15, borderTopLeftRadius: 0}, picStyle]}
                             source={{uri: media.url}} />
